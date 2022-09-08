@@ -2,6 +2,7 @@ package facade;
 
 import java.util.Scanner;
 
+import app.game.Game;
 import model.highscore.HighScoreList;
 
 public class Facade {
@@ -13,6 +14,11 @@ public class Facade {
 	
 	private Facade() {
 		
+	}
+	
+	private void startGame() {
+		Game g = Game.getinstance();
+		g.play();
 	}
 	
 	public void menu() {
@@ -33,6 +39,8 @@ public class Facade {
 			} 
 			sc.nextLine();
 			if (input == 1) {
+				startGame();
+				
 			}
 			if (input == 2) {
 			
@@ -45,6 +53,8 @@ public class Facade {
 //				FileHandler handler = FileHandler.getInstance();
 //				handler.writeHighScore(list.getHighscoreList());
 //				sc.nextLine();
+				
+				HighScoreList.initScores();
 				HighScoreList.printAllScores();
 				sc.nextLine();
 

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.Vector;
 
 import facade.FileHandler;
+import facade.Helper;
 
 public class HighScoreList {
 
@@ -35,9 +36,14 @@ public class HighScoreList {
 	
 	public static void printAllScores() {
 		HighScoreList list = HighScoreList.getInstance();
-
+		Helper hp = Helper.getInstance();
+		hp.cls();
+		
+		int i = 0;
 		for (HighScore a : list.getHighscoreList()) {
-			System.out.println("name: " + a.getName() + "\tscore : " + a.getScore());
+			System.out.println(i+1 + " " + "name: " + a.getName() + "\tscore : " + a.getScore());
+			i++;	
+			if(i == 9) break;
 		}
 		
 	}

@@ -13,6 +13,37 @@ public class Game {
 		
 	}
 	
+	public void play() {
+		this.state = 1;
+
+		Thread a = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				int i = 20;
+				while(i > 10 && state == 1) {
+					System.out.println(i);
+					i--;
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					if(i == 11) stopp();
+				}
+			}
+			
+			
+			public void stopp() {
+				state = 0;
+			}
+		});
+			
+//		a.start();
+
+	}
+	
 	
 	
 	
