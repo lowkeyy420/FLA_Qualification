@@ -1,5 +1,6 @@
 package app;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import facade.FileHandler;
@@ -35,14 +36,32 @@ public class Main {
 			}
 			if (input == 2) {
 				showHighScore();
-				HighScoreList list = HighScoreList.getInstance();
-				list.addHighScore(new HighScore("Bobi", 80));
-				list.addHighScore(new HighScore("Joojo", 30));
-				list.addHighScore(new HighScore("Feysen", 160));
-				list.addHighScore(new HighScore("MIkha", 200));
-				FileHandler handler = FileHandler.getInstance();
-				handler.writeHighScore(list.getHighscoreList());
-				sc.nextLine();
+				//test add
+//				HighScoreList list = HighScoreList.getInstance();
+//				list.addHighScore(new HighScore("Bobi", 80));
+//				list.addHighScore(new HighScore("Joojo", 30));
+//				list.addHighScore(new HighScore("Feysen", 160));
+//				list.addHighScore(new HighScore("MIkha", 200));
+//				FileHandler handler = FileHandler.getInstance();
+//				handler.writeHighScore(list.getHighscoreList());
+//				sc.nextLine();
+				
+				//test view
+//				HighScoreList list = HighScoreList.getInstance();
+//				FileHandler handler = FileHandler.getInstance();
+//				
+//				try {
+//					list.setHighscoreList(handler.readHighScore());
+//				} catch (FileNotFoundException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				
+//				for (HighScore a : list.getHighscoreList()) {
+//					System.out.println("name: " + a.getName() + "\tscore : " + a.getScore());
+//				}
+//				
+//				sc.nextLine();
 			}
 			if (input == 3) System.exit(0);
 		}
