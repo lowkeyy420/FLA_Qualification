@@ -1,6 +1,9 @@
 package model.highscore;
 
+import java.io.FileNotFoundException;
 import java.util.Vector;
+
+import facade.FileHandler;
 
 public class HighScoreList {
 
@@ -28,6 +31,26 @@ public class HighScoreList {
 
 	public void setHighscoreList(Vector<HighScore> highscoreList) {
 		this.highscoreList = highscoreList;
+	}
+	
+	public static void printAllScores() {
+		HighScoreList list = HighScoreList.getInstance();
+
+		for (HighScore a : list.getHighscoreList()) {
+			System.out.println("name: " + a.getName() + "\tscore : " + a.getScore());
+		}
+		
+	}
+	
+	public static void initScores() {
+		HighScoreList list = HighScoreList.getInstance();
+		FileHandler handler = FileHandler.getInstance();
+		try {
+			list.setHighscoreList(handler.readHighScore());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	

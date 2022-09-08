@@ -1,7 +1,5 @@
 package app;
 
-import java.util.Scanner;
-
 import facade.Facade;
 
 public class Main {

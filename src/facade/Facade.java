@@ -2,6 +2,8 @@ package facade;
 
 import java.util.Scanner;
 
+import model.highscore.HighScoreList;
+
 public class Facade {
 	private static Facade instance;
 	public static Facade getInstance() {
@@ -18,6 +20,7 @@ public class Facade {
 		Helper hp = Helper.getInstance();
 		
 		hp.showSplashBeginning();
+		HighScoreList.initScores();
 		sc.nextLine();
 		
 		int input = 0;
@@ -42,23 +45,9 @@ public class Facade {
 //				FileHandler handler = FileHandler.getInstance();
 //				handler.writeHighScore(list.getHighscoreList());
 //				sc.nextLine();
-				
-				//test view
-//				HighScoreList list = HighScoreList.getInstance();
-//				FileHandler handler = FileHandler.getInstance();
-//				
-//				try {
-//					list.setHighscoreList(handler.readHighScore());
-//				} catch (FileNotFoundException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				
-//				for (HighScore a : list.getHighscoreList()) {
-//					System.out.println("name: " + a.getName() + "\tscore : " + a.getScore());
-//				}
-//				
-//				sc.nextLine();
+				HighScoreList.printAllScores();
+				sc.nextLine();
+
 			}
 			if (input == 3) System.exit(0);
 		}
