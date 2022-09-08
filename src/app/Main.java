@@ -19,21 +19,29 @@ public class Main {
 		int input = 0 ;
 		while(true) {
 			Helper.showMainMenu();
-			input = sc.nextInt(); sc.nextLine();
-			switch (input) {
-			case 1:
-				
-				break;
-			case 2:
-				
-				break;
-			case 3:
-				System.exit(0);
-				break;
+			try {
+				input = sc.nextInt(); 
+			} catch (Exception e) {
+			} sc.nextLine();
+			if (input == 1) {
+				startGame();
 			}
-			
+			if (input == 2) {
+				showHighScore();
+			}
+			if (input == 3) System.exit(0);
 		}
 		
 	}
+	
+	
+	private void startGame() {
+		
+	}
+	
+	private void showHighScore() {
+		
+	}
+	
 
 }

@@ -20,6 +20,7 @@ public class Helper {
 		System.out.printf("\n\n\n\nPress Enter to Continue...");
 		Scanner sc = new Scanner(System.in);
 		String enter = sc.nextLine();
+		sc.close();
 	}
 	
 	public static void showMainMenu() {
