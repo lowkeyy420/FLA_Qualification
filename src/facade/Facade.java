@@ -31,6 +31,7 @@ public class Facade {
 		
 		int input = 0;
 		while(true) {
+			input = 0;
 			hp.showMainMenu();
 			try {
 				input = sc.nextInt(); 
