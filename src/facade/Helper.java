@@ -1,7 +1,5 @@
 package facade;
-
-import java.util.Scanner;
-
+	
 public class Helper {
 	
 	
@@ -9,6 +7,10 @@ public class Helper {
 	public static Helper getInstance() {
 		if(instance == null) instance = new Helper();
 		return instance;
+	}
+	
+	private Helper() {
+		
 	}
 
 	

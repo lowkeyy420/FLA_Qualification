@@ -18,6 +18,10 @@ public class FileHandler {
 		return instance;
 	}
 	
+	private FileHandler() {
+		
+	}
+	
 	public void writeHighScore(Vector<HighScore> data) {
 		File fp = new File("files/highscore.txt");
 		
