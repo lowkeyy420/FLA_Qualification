@@ -4,13 +4,21 @@ import java.util.Scanner;
 
 public class Helper {
 	
+	
+	private static Helper instance;
+	public static Helper getInstance() {
+		if(instance == null) instance = new Helper();
+		return instance;
+	}
+
+	
 	public static void cls() {
 		for(int i = 0 ; i < 33 ; i++) {
 			System.out.println("");
 		}
 	}
 	
-	public static void showSplashBeginning() {
+	public void showSplashBeginning() {
 		cls();
 		System.out.println("  __             __                     ");
 		System.out.println("|/  |           /  |           /        ");
@@ -18,12 +26,10 @@ public class Helper {
 		System.out.println("|   )|   )     |\\   |___)|___ |    |   )");
 		System.out.println("|__/ |__/|     | \\  |__   __/ |__  |__/");
 		System.out.printf("\n\n\n\nPress Enter to Continue...");
-		Scanner sc = new Scanner(System.in);
-		String enter = sc.nextLine();
-		sc.close();
+		
 	}
 	
-	public static void showMainMenu() {
+	public void showMainMenu() {
 		cls();
 		System.out.println("Main Menu");
 		System.out.println("1. Play New Restaurant");
