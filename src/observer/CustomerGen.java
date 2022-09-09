@@ -18,6 +18,7 @@ public class CustomerGen implements Observer {
 				if(Human.isNameAvailable(res.getCustomerList(), name)) {
 					CustomerFactory cf = new CustomerFactory();
 					res.getCustomerList().add(cf.makeCustomer(name));
+					res.setAvailableChair(res.getAvailableChair() + 1);
 					break;
 				}
 				
