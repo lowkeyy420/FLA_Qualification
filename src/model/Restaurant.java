@@ -13,6 +13,8 @@ public class Restaurant {
 	private Integer availableChair = 0;
 	
 	private Vector<Human> customerList = new Vector<Human>();
+	private Vector<Human> chefList = new Vector<Human>();
+	private Vector<Human> waiterList = new Vector<Human>();
 		
 	private static Restaurant instance;
 	public static Restaurant getInstance(String name ) {
@@ -49,6 +51,10 @@ public class Restaurant {
 		this.money = money;
 	}
 
+	public void setScore(Integer score) {
+		this.score = score;
+	}
+
 	public Integer getChair() {
 		return chair;
 	}
@@ -76,6 +82,32 @@ public class Restaurant {
 	public void addCustomerToList(Human h) {
 		this.customerList.add(h);
 	}
+
+	public Vector<Human> getChefList() {
+		return chefList;
+	}
+
+	public Vector<Human> getWaiterList() {
+		return waiterList;
+	}
+
+	public void setChefList(Vector<Human> chefList) {
+		this.chefList = chefList;
+	}
+
+	public void setWaiterList(Vector<Human> waiterList) {
+		this.waiterList = waiterList;
+	}
+	
+	public void addChefToList(Human h) {
+		this.chefList.add(h);
+	}
+	
+	public void addWaiterToList(Human h) {
+		this.waiterList.add(h);
+	}
+	
+	
 	
 	
 	

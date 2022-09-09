@@ -1,6 +1,7 @@
 package state.customerState;
 
 import model.human.Customer;
+import model.human.Human;
 import state.State;
 
 public class CustomerWaitFood implements State {
@@ -18,6 +19,12 @@ public class CustomerWaitFood implements State {
 	@Override
 	public void describe() {
 		// TODO Auto-generated method stub
-		
+		System.out.println(customer.getName() +  " is waiting for food");
 	}
+	
+	@Override
+	public void receiveS(Human human) {
+		changeState();
+	}
+
 }

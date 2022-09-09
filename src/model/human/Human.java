@@ -2,8 +2,11 @@ package model.human;
 
 import java.util.Vector;
 
+import state.State;
+
 public abstract class Human {
 	private String name;
+	private State state;
 	
 	public Human(String name) {
 		this.name = name;
@@ -23,6 +26,18 @@ public abstract class Human {
 			if (h.getName().equals(toSearch)) return false;
 		}		
 		return true;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+	
+	public void receiveS(Human human) {
+		
 	}
 	
 }

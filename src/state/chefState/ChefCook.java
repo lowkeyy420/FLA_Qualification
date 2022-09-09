@@ -1,6 +1,7 @@
 package state.chefState;
 
 import model.human.Chef;
+import model.human.Human;
 import state.State;
 
 public class ChefCook implements State {
@@ -20,7 +21,13 @@ public class ChefCook implements State {
 	@Override
 	public void describe() {
 		// TODO Auto-generated method stub
+		System.out.println(chef.getName() +  " is cooking");
 		
+	}
+
+	@Override
+	public void receiveS(Human human) {
+		changeState();
 	}
 
 }

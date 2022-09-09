@@ -67,6 +67,7 @@ public class Facade {
 	}
 	
 	public void pauseMenu() {
+		Helper.cls();
 		Restaurant r = Restaurant.getInstance("");
 		System.out.println("-----PAUSE MENU-----");
 		System.out.println("Status");
@@ -85,6 +86,24 @@ public class Facade {
 		if(result > 74) return true;
 		
 		return false;
+	}
+	
+	public static int randomCustomer() {
+		Restaurant r = Restaurant.getInstance("");
+		int random = (int) Math.floor(Math.random()*(r.getCustomerList().size()));
+		return random;
+	}
+	
+	public static int randomChef() {
+		Restaurant r = Restaurant.getInstance("");
+		int random = (int) Math.floor(Math.random()*(r.getChefList().size()));
+		return random;
+	}
+	
+	public static int randomWaiter() {
+		Restaurant r = Restaurant.getInstance("");
+		int random = (int) Math.floor(Math.random()*(r.getWaiterList().size()));
+		return random;
 	}
 	
 	
