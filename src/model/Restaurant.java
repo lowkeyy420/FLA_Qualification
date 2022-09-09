@@ -4,15 +4,19 @@ public class Restaurant {
 	private String name;
 	private Integer money;
 	private Integer defaultMoney = 1300;
+	private Integer score;
 	
 	private static Restaurant instance;
-	public static Restaurant getInstance() {
-		if(instance == null) instance = new Restaurant();
+	public static Restaurant getInstance(String name ) {
+		if(instance == null) instance = new Restaurant(name);
 		return instance;
 	}
 	
-	private Restaurant() {
+	private Restaurant(String name) {
+		this.name = name;
 		this.money = defaultMoney;
+		this.score = 0;
+		
 	}
 
 	public String getName() {
@@ -22,6 +26,11 @@ public class Restaurant {
 	public Integer getMoney() {
 		return money;
 	}
+	
+	public Integer getScore() {
+		return score;
+	}
+
 
 	public void setName(String name) {
 		this.name = name;

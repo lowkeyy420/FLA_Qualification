@@ -3,6 +3,8 @@ package facade;
 import java.util.Scanner;
 
 import app.game.Game;
+import model.Restaurant;
+import model.highscore.HighScore;
 import model.highscore.HighScoreList;
 
 public class Facade {
@@ -62,6 +64,16 @@ public class Facade {
 			}
 			if (input == 3) System.exit(0);
 		}
+	}
+	
+	public void pauseMenu() {
+		Restaurant r = Restaurant.getInstance("");
+		System.out.println("-----PAUSE MENU-----");
+		System.out.println("Status");
+		System.out.println("Money: " + r.getMoney());
+		System.out.println("Score: " + r.getScore());
+		System.out.println();
+		
 	}
 	
 	

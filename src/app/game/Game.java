@@ -1,7 +1,16 @@
 package app.game;
 
-public class Game {
+import java.util.Scanner;
+
+import app.Timer;
+import facade.Facade;
+import facade.Helper;
+import model.Restaurant;
+
+public class Game extends Timer {
 	private int state = 0; // 0 stop, 1 playing, 2 pause
+	Scanner sc = new Scanner(System.in);
+	Facade fc = Facade.getInstance();
 	
 	private static Game instance;
 	public static Game getinstance() {
@@ -14,34 +23,51 @@ public class Game {
 	}
 	
 	public void play() {
-		this.state = 1;
-
-		Thread a = new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				int i = 20;
-				while(i > 10 && state == 1) {
-					System.out.println(i);
-					i--;
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					if(i == 11) stopp();
-				}
+		Helper.cls();
+		newRestaurant();
+		super.start();
+		while (isRunning()) {
+			if(isPaused()) {
+				fc.pauseMenu();
+				showStatus();
+				sc.nextLine();
+				resume();
 			}
-			
-			
-			public void stopp() {
-				state = 0;
+			else {
+				sc.nextLine();
+				pause();
 			}
-		});
-			
-//		a.start();
+		}
+	}
+	
+	
+	private void newRestaurant() {
+		System.out.print("Input Restaurant Name : ");
+		String restaurantName = sc.nextLine();
+		Restaurant r = Restaurant.getInstance(restaurantName);
+	}
 
+	@Override
+	public void runOnTick() {
+		if(getTick() % (getTickPS()) == 0) reload();
+		
+	}
+	
+	private void showStatus() {
+		System.out.println("Is running = " + isRunning());
+		System.out.println("Is paused = " + isPaused());
+		System.out.println("Is stopped = " + isStopped());
+		System.out.println("Enter to start");
+		System.out.println();
+	}
+	
+	private void reload() {
+//		Helper.cls();
+		System.out.println("Is running = " + isRunning());
+		System.out.println("Is paused = " + isPaused());
+		System.out.println("Is stopped = " + isStopped());
+		System.out.println("Enter to pause");
+		System.out.println();
 	}
 	
 	
