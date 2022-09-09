@@ -54,6 +54,7 @@ public class Game extends Timer {
 				t.pause();
 			}
 		}
+		
 	}
 	
 	

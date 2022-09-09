@@ -1,9 +1,13 @@
 package factory;
 
+import facade.Helper;
 import model.human.Customer;
 
-public interface CustomerFactory {
+public class CustomerFactory {
 	
-	public Customer makeCustomer(String name);
+	public Customer makeCustomer(String name) {
+		int tolerance = Helper.randomTolerance();
+		return new Customer(name, tolerance);
+	}
 	
 }

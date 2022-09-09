@@ -1,4 +1,4 @@
-package model.human;
+package state;
 
 public class State {
 

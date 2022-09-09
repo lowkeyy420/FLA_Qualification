@@ -1,5 +1,5 @@
 package facade;
-	
+
 public class Helper {
 	
 	
@@ -38,6 +38,14 @@ public class Helper {
 		System.out.println("2. High Score");
 		System.out.println("3. Exit");
 		System.out.print("Input [1..3] : ");
+	}
+	
+	public static int randomTolerance() {
+		int max = 150;
+		int min = 100;
+		int result = (int) Math.floor(Math.random()*(max-min+1)+min);
+		
+		return result;
 	}
 	
 }
