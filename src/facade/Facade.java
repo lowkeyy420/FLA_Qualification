@@ -77,5 +77,15 @@ public class Facade {
 		
 	}
 	
+	public static boolean CustomerChance() {
+		Restaurant r = Restaurant.getInstance("");
+		if(r.getAvailableChair() == r.getChair()) return false;
+		
+		int result = (int) Math.floor(Math.random()*(100-0+1)+0);
+		if(result > 74) return true;
+		
+		return false;
+	}
+	
 	
 }

@@ -6,6 +6,9 @@ import app.Timer;
 import facade.Facade;
 import facade.Helper;
 import model.Restaurant;
+import model.human.Human;
+import observer.CustomerGen;
+import observer.CustomerGenFetcher;
 
 public class Game extends Timer {
 	Scanner sc = new Scanner(System.in);
@@ -20,8 +23,10 @@ public class Game extends Timer {
 	}
 	
 	private Game() {
-		
+		fetch.addObsv(new CustomerGen());
 	}
+	
+	CustomerGenFetcher fetch = CustomerGenFetcher.getInstance();
 	
 	public void play() {
 		Helper.cls();
@@ -33,7 +38,12 @@ public class Game extends Timer {
 			public void runOnTick() {
 				if(getTick() % getTickPS() == 0) {
 					reload(t);
+					fetch.run();
 					time++;
+					Restaurant r = Restaurant.getInstance("");
+					for (Human h : r.getCustomerList()) {
+						System.out.println(h.getName());
+					}
 				}
 			}
 		};
@@ -67,6 +77,7 @@ public class Game extends Timer {
 		}
 		System.out.println();
 		Restaurant r = Restaurant.getInstance(restaurantName);
+		r.setName(restaurantName);
 	}
 
 	

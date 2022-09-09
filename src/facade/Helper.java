@@ -1,5 +1,7 @@
 package facade;
 
+import java.util.Random;
+
 public class Helper {
 	
 	
@@ -46,6 +48,16 @@ public class Helper {
 		int result = (int) Math.floor(Math.random()*(max-min+1)+min);
 		
 		return result;
+	}
+	
+	public static String randomName() {
+		Random r = new Random();
+		
+		Character first = (char) (r.nextInt(26)+ 'A');
+		Character second = (char) (r.nextInt(26)+ 'A');
+		String res = first.toString() + second.toString();
+//		System.out.println(res);
+		return res;
 	}
 	
 }

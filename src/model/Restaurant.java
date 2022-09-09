@@ -1,12 +1,19 @@
 package model;
 
+import java.util.Vector;
+
+import model.human.Human;
+
 public class Restaurant {
 	private String name;
 	private Integer money;
 	private Integer defaultMoney = 1300, defaultScore = 0, defaultChair = 4;
 	private Integer score;
 	private Integer chair;
+	private Integer availableChair = 0;
 	
+	private Vector<Human> customerList = new Vector<Human>();
+		
 	private static Restaurant instance;
 	public static Restaurant getInstance(String name ) {
 		if(instance == null) instance = new Restaurant(name);
@@ -49,6 +56,30 @@ public class Restaurant {
 	public void setChair(Integer chair) {
 		this.chair = chair;
 	}
+
+	public Integer getAvailableChair() {
+		return availableChair;
+	}
+
+	public void setAvailableChair(Integer availableChair) {
+		this.availableChair = availableChair;
+	}
+
+	public Vector<Human> getCustomerList() {
+		return customerList;
+	}
+
+	public void setCustomerList(Vector<Human> customerList) {
+		this.customerList = customerList;
+	}
+	
+	public void addCustomerToList(Human h) {
+		this.customerList.add(h);
+	}
+	
+	
+	
+	
 	
 	
 	
