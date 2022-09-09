@@ -8,9 +8,10 @@ import facade.Helper;
 import model.Restaurant;
 
 public class Game extends Timer {
-	private int state = 0; // 0 stop, 1 playing, 2 pause
 	Scanner sc = new Scanner(System.in);
 	Facade fc = Facade.getInstance();
+	int time = 0;
+	Timer t;
 	
 	private static Game instance;
 	public static Game getinstance() {
@@ -25,52 +26,72 @@ public class Game extends Timer {
 	public void play() {
 		Helper.cls();
 		newRestaurant();
-		super.start();
-		while (isRunning()) {
-			if(isPaused()) {
+			
+		t = new Timer() {
+			
+			@Override
+			public void runOnTick() {
+				if(getTick() % getTickPS() == 0) {
+					reload(t);
+					time++;
+				}
+			}
+		};
+		
+		t.start();
+		t.pause();
+		String input = "";
+		while (t.isRunning()) {
+			if(t.isPaused()) {
 				fc.pauseMenu();
-				showStatus();
-				sc.nextLine();
-				resume();
+				showStatus(t);
+				input = sc.nextLine();
+				if(input.equals("q")) t.stop();
+				else t.resume();
 			}
 			else {
 				sc.nextLine();
-				pause();
+				t.pause();
 			}
 		}
 	}
 	
 	
 	private void newRestaurant() {
-		System.out.print("Input Restaurant Name : ");
-		String restaurantName = sc.nextLine();
+		String restaurantName;
+		while(true) {
+			System.out.print("Input Restaurant Name : ");
+			restaurantName = sc.nextLine();	
+			if(restaurantName.length() >= 3 && restaurantName.length() <= 15) break;
+		}
+		System.out.println();
 		Restaurant r = Restaurant.getInstance(restaurantName);
+	}
+
+	
+	private void showStatus(Timer t) {
+		System.out.println("Is running = " + t.isRunning());
+		System.out.println("Is paused = " + t.isPaused());
+		System.out.println("Is stopped = " + t.isStopped());
+		System.out.println("Enter to start");
+		System.out.println("Type 'q' to quit");
+		System.out.println(time);
+		System.out.println();
+	}
+	
+	private void reload(Timer t) {
+//		Helper.cls();
+		System.out.println("Is running = " + t.isRunning());
+		System.out.println("Is paused = " + t.isPaused());
+		System.out.println("Is stopped = " + t.isStopped());
+		System.out.println("Enter to pause");
+		System.out.println(time);
+		System.out.println();
 	}
 
 	@Override
 	public void runOnTick() {
-		if(getTick() % (getTickPS()) == 0) reload();
-		
-	}
-	
-	private void showStatus() {
-		System.out.println("Is running = " + isRunning());
-		System.out.println("Is paused = " + isPaused());
-		System.out.println("Is stopped = " + isStopped());
-		System.out.println("Enter to start");
-		System.out.println();
-	}
-	
-	private void reload() {
-//		Helper.cls();
-		System.out.println("Is running = " + isRunning());
-		System.out.println("Is paused = " + isPaused());
-		System.out.println("Is stopped = " + isStopped());
-		System.out.println("Enter to pause");
-		System.out.println();
-	}
-	
-	
+	}	
 	
 	
 }

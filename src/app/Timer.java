@@ -2,7 +2,7 @@ package app;
 
 public abstract class Timer implements Runnable{
 
-	private int delayTick = 200; // set tick delay per second for more accuracy
+	private int delayTick = 200; // set tick interval
 	private int tick;
 	private Thread th;
 	private boolean isRunning = false;

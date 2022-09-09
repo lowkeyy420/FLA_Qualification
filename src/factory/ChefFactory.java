@@ -1,7 +1,7 @@
 package factory;
 
+import model.human.Chef;
 import model.human.Employee;
-import model.human.chef.Chef;
 
 public class ChefFactory implements EmployeeFactory {
 

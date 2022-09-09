@@ -1,6 +1,4 @@
-package model.human.waiter;
-
-import model.human.Employee;
+package model.human;
 
 public class Waiter extends Employee {
 	

@@ -1,6 +1,4 @@
-package model.human.chef;
-
-import model.human.Employee;
+package model.human;
 
 public class Chef extends Employee {
 	private int skill;

@@ -72,6 +72,7 @@ public class Facade {
 		System.out.println("Status");
 		System.out.println("Money: " + r.getMoney());
 		System.out.println("Score: " + r.getScore());
+		System.out.println("Size : " + r.getChair());
 		System.out.println();
 		
 	}
