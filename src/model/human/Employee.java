@@ -1,10 +1,14 @@
 package model.human;
 
-public abstract class Employee {
+public abstract class Employee extends Human {
 	
-	private String name;
 	private int speed;
 
+	public Employee(String name) {
+		super(name);
+		this.speed = 1;
+	}
+	
 	public int getSpeed() {
 		return speed;
 	}
@@ -12,12 +16,6 @@ public abstract class Employee {
 	public void addSpeed() {
 		speed++;
 	}
-
-	public Employee(String name) {
-		this.name = name;
-		this.speed = 1;
-	}
-	
 	
 	
 
